@@ -13,16 +13,7 @@ template<typename GenType>
 struct Organism
 {
     Organism() {}
-    Organism(size_t size) : chromosome(std::vector<GenType>(size))
-    {
-        size_t max = std::numeric_limits<GenType>::max() + 1;
-        if(max > 10000 || max == 0) max = 10000;
-        for(size_t i = 0; i < chromosome.size(); ++i)
-        {
-            chromosome[i] = rand() % max;
-        }
-        fitness = std::numeric_limits<double>::max();
-    }
+    Organism(size_t size) : chromosome(std::vector<GenType>(size)) {}
 
     friend bool operator<(const Organism<GenType> &lhs,
                           const Organism<GenType> &rhs)

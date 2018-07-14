@@ -30,7 +30,7 @@ int main()
 
     ga.setDisplayFunction(make_unique< SimpleDisplay<bool> >());
 
-    Organism<bool> res1 = ga.optimize(10);
+    Organism<bool> res1 = ga.optimize(5);
 
 
     GeneticAlgorithm<double> ga2(2, 100);
@@ -52,7 +52,7 @@ int main()
                       exp(pow(1 - sin(y), 2)) + pow(x - y, 2);
     });
 
-    Organism<double> res2 = ga2.optimize(5);
+    Organism<double> res2 = ga2.optimize(1);
 
 
     GeneticAlgorithm<double> ga3(2, 50);
@@ -95,7 +95,7 @@ int main()
                                                pow(y - M_PI, 2)));
     });
 
-    Organism<double> res4 = ga4.optimize(20);
+    Organism<double> res4 = ga4.optimize(1);
 
     cout << endl << "Results:" << endl;
     cout << res1 << " " << "Fit: " << res1.fitness <<

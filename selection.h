@@ -23,7 +23,6 @@ class RouletteSelection : public Selection<GenType>
     std::vector< Organism<GenType> >
     selection(const std::vector< Organism<GenType> > &population) override
     {
-        // TEST
         std::vector< Organism<GenType> > parentPool;
         std::vector<double> sums(population.size());
         sums[0] = population[1].fitness;
