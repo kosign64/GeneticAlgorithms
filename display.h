@@ -35,6 +35,20 @@ public:
     }
 };
 
+template<typename GenType>
+class BestDisplay : public Display<GenType>
+{
+public:
+    void display(const std::vector< Organism<GenType> > &population,
+                    unsigned long iter) override
+    {
+        const Organism<GenType> &best = population.front();
+        std::cout << "Iteration #" << iter << std::endl;
+        std::cout << "Best: " << best << " " << "Fit: " << best.fitness <<
+                     std::endl << std::endl;
+    }
+};
+
 }
 
 #endif // DISPLAY_H
