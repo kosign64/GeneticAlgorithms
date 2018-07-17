@@ -11,8 +11,8 @@ template<typename GenType>
 class Prepopulation
 {
 public:
-    virtual void prepopulate(const std::vector< Organism<GenType> > &,
-                             std::vector< Organism<GenType> > &) = 0;
+    virtual void prepopulate(const Population<GenType> &,
+                             Population<GenType> &) = 0;
     virtual ~Prepopulation() = default;
 };
 
@@ -21,8 +21,8 @@ class EliteStrategy : public Prepopulation<GenType>
 {
 public:
     EliteStrategy(int size) : size_(size) {}
-    void prepopulate(const std::vector< Organism<GenType> > &currentPopulation,
-                     std::vector< Organism<GenType> > &nextPopulation) override
+    void prepopulate(const Population<GenType> &currentPopulation,
+                     Population<GenType> &nextPopulation) override
     {
         for(size_t i = 0; i < size_; ++i)
         {

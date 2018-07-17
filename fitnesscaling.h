@@ -11,7 +11,7 @@ template<typename GenType>
 class FitnessScaling
 {
 public:
-    virtual void scale(std::vector< Organism<GenType> > &, bool) = 0;
+    virtual void scale(Population<GenType> &, bool) = 0;
     virtual ~FitnessScaling() = default;
 };
 
@@ -19,8 +19,7 @@ template<typename GenType>
 class RankScaling : public FitnessScaling<GenType>
 {
 public:
-    void scale(std::vector< Organism<GenType> > &population,
-               bool minimize) override
+    void scale(Population<GenType> &population, bool minimize) override
     {
         for(size_t i = 0; i < population.size(); ++i)
         {

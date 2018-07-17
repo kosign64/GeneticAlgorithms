@@ -13,8 +13,7 @@ template<typename GenType>
 class Display
 {
 public:
-    virtual void display(const std::vector< Organism<GenType> > &,
-                         unsigned long) = 0;
+    virtual void display(const Population<GenType> &, unsigned long) = 0;
     virtual ~Display() = default;
 };
 
@@ -22,8 +21,8 @@ template<typename GenType>
 class SimpleDisplay : public Display<GenType>
 {
 public:
-    void display(const std::vector< Organism<GenType> > &population,
-                    unsigned long iter) override
+    void display(const Population<GenType> &population,
+                 unsigned long iter) override
     {
         std::cout << "Iteration #" << iter << std::endl;
         for(const auto &org : population)
@@ -39,8 +38,8 @@ template<typename GenType>
 class BestDisplay : public Display<GenType>
 {
 public:
-    void display(const std::vector< Organism<GenType> > &population,
-                    unsigned long iter) override
+    void display(const Population<GenType> &population,
+                 unsigned long iter) override
     {
         const Organism<GenType> &best = population.front();
         std::cout << "Iteration #" << iter << std::endl;

@@ -2,9 +2,7 @@
 #define ORGANISM_H
 
 #include <iostream>
-#include <iomanip>
 #include <vector>
-#include <limits>
 
 namespace ga
 {

@@ -46,7 +46,7 @@ private:
 class BinaryInitialization : public Initialization<bool>
 {
 public:
-    void initialize(std::vector< Organism<bool> > &population) override
+    void initialize(Population<bool> &population) override
     {
         for(auto &org : population)
         {
