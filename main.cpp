@@ -15,7 +15,7 @@ int main()
     ga.setSelectionAlgorithm(make_unique< TournamentSelection<bool> >(4));
     ga.setCrossoverAlgorithm(make_unique< MultiPointCrossover<bool> >(2));
     ga.setMutationAlgorithm(make_unique<BinaryMutation>());
-    ga.setStoppingCriteria(make_unique< IterationCriteria<bool> >(20));
+    ga.setStoppingCriteria(make_unique< FitnessCriteria<bool> >(1));
     ga.setFitnessFunction([](Organism<bool> &org) {
         int number = 0;
         for(size_t i = 0; i < org.chromosome.size(); ++i)
@@ -42,7 +42,7 @@ int main()
     ga2.setSelectionAlgorithm(make_unique< TournamentSelection<double> >(4));
     ga2.setCrossoverAlgorithm(make_unique< IntermediateCrossover<double> >(5));
     ga2.setMutationAlgorithm(make_unique< GaussianMutation<double> >(1));
-    ga2.setStoppingCriteria(make_unique< IterationCriteria<double> >(50));
+    ga2.setStoppingCriteria(make_unique< FitnessCriteria<double> >(-106));
     ga2.setLinearBounds({-10, -6.5}, {0, 0});
     ga2.setDisplayFunction(make_unique< SimpleDisplay<double> >());
     ga2.setFitnessFunction([](Organism<double> &org) {
@@ -64,7 +64,7 @@ int main()
     ga3.setSelectionAlgorithm(make_unique< RouletteSelection<double> >());
     ga3.setCrossoverAlgorithm(make_unique< IntermediateCrossover<double> >(5));
     ga3.setMutationAlgorithm(make_unique< GaussianMutation<double> >(1));
-    ga3.setStoppingCriteria(make_unique< IterationCriteria<double> >(50));
+    ga3.setStoppingCriteria(make_unique< FitnessCriteria<double> >(2.3, false));
     ga3.setLinearBounds({-4, -4}, {4, 4});
     ga3.setDisplayFunction(make_unique< SimpleDisplay<double> >());
     ga3.setFitnessFunction([](Organism<double> &org) {
@@ -85,7 +85,7 @@ int main()
     ga4.setSelectionAlgorithm(make_unique< TournamentSelection<double> >(4));
     ga4.setCrossoverAlgorithm(make_unique< IntermediateCrossover<double> >(5));
     ga4.setMutationAlgorithm(make_unique< GaussianMutation<double> >(1));
-    ga4.setStoppingCriteria(make_unique< IterationCriteria<double> >(50));
+    ga4.setStoppingCriteria(make_unique< FitnessCriteria<double> >(-0.9));
     ga4.setLinearBounds({-30, -30}, {30, 30});
     ga4.setDisplayFunction(make_unique< SimpleDisplay<double> >());
     ga4.setFitnessFunction([](Organism<double> &org) {
