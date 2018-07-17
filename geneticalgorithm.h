@@ -120,6 +120,7 @@ public:
     {
         numberOfThreads_ = numberOfThreads;
         initialization_->initialize(population_);
+        calcFitnessForPopulation();
         for(unsigned long i = 0; !stopping_->stop(i, population_); ++i)
         {
             calcFitnessForPopulation();
